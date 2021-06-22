@@ -6,9 +6,16 @@ const app = express();
 app.get("/", (req,res)=>{
     res.send("<H1> Home Page </H1>");
 });
+
 app.get("/about", (req,res)=>{
+//storing cookie 
+    res.cookie("username", "siana");
+//clearing cookie
+    res.clearCookie("username");
+    
     res.send("<H1> About Page </H1>");
 });
+
 app.get("/contact", (req,res)=>{
     res.send("<H1> Contact Page </H1>");
 });
