@@ -6,7 +6,10 @@ router.get("/login", (req,res)=>{
 });
 
 router.get("/register", (req,res)=>{
-    res.send("<H1> This is Register Page </H1>");
+    //res.send("<H1> This is Register Page </H1>");
+    res.sendFile("register.html", {
+        root: "./views/users"
+    });
 });
 
 module.exports = router;
