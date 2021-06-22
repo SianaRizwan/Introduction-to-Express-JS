@@ -8,16 +8,21 @@ app.get("/", (req,res)=>{
 });
 
 app.get("/about", (req,res)=>{
-//storing cookie 
+//storing cookie (sending data to the server using cookie)
     res.cookie("username", "siana");
 //clearing cookie
     res.clearCookie("username");
-    
+//sending data through the header
+    //res.append("id", "105");
+
     res.send("<H1> About Page </H1>");
 });
 
 app.get("/contact", (req,res)=>{
-    res.send("<H1> Contact Page </H1>");
+    //res.send("<H1> Contact Page </H1>");
+    
+//returning json with response
+    res.json({name: "John reese", proffessional: "Teacher"});
 });
 
 //if navigated to any other url except the specified ones then the following error will be shown
