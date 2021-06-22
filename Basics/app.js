@@ -15,7 +15,9 @@ app.get("/contact", (req,res)=>{
 
 //if navigated to any other url except the specified ones then the following error will be shown
 app.use((req,res)=>{
-    res.send("<H1> Error 404! Page doesn't exist </H1>");
+//manually setting the status code 
+    res.status(301).send("Page doesn't exist");
+    //res.send("<H1> Error 404! Page doesn't exist </H1>");
 });
 
 module.exports = app;
