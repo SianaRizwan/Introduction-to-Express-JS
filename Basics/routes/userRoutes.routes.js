@@ -2,7 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/login", (req,res)=>{
-    res.send("<H1> This is Login Page </H1>");
+    const id = req.query.id;
+    res.send(`User with ID - ${id} is requesting to login`);
+
+    //res.send("<H1> This is Login Page </H1>");
 });
 
 router.get("/register", (req,res)=>{
