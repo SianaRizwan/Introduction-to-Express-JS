@@ -3,7 +3,9 @@
 const express = require('express');
 const app = express();
 const userRoutes = require("./routes/userRoutes.routes");
+const { logger, printSomething } = require("./middlewares/app.middlewares");
 
+app.use([logger, printSomething]);
 app.use(userRoutes);
 
 
