@@ -4,8 +4,11 @@ const express = require('express');
 const app = express();
 const userRoutes = require("./routes/userRoutes.routes");
 const { logger, printSomething } = require("./middlewares/app.middlewares");
+const morgan = require("morgan");
 
-app.use([logger, printSomething]);
+
+//app.use([logger, printSomething]);
+app.use(morgan("tiny"));
 app.use(express.static("public"));
 app.use(userRoutes);
 
