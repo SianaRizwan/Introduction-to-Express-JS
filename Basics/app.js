@@ -6,7 +6,9 @@ const userRoutes = require("./routes/userRoutes.routes");
 const { logger, printSomething } = require("./middlewares/app.middlewares");
 
 app.use([logger, printSomething]);
+app.use(express.static("public"));
 app.use(userRoutes);
+
 
 
 app.get("/", (req,res)=>{
