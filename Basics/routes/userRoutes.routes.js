@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
+const isLoggedIn = require("./../middlewares/auth.middlewares")
 
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
@@ -19,15 +20,20 @@ router.get("/register", (req,res)=>{
         root: "./views/users"
     });
 });
-router.post("/register", (req,res)=>{
-    const username = req.body.username;
-    const email = req.body.email;
-    res.send(
-             `<H1>user with Email - ${email} and Username - ${username} is requesting to login.</H1>`
-           );
+router.get("/dashboard", (req,res)=>{
+    res.send("User Dashboard");
+})
+router.post("/register", isLoggedIn, (req,res)=>{
+    // const username = req.body.username;
+    // const email = req.body.email;
+    // res.send(
+    //          `<H1>user with Email - ${email} and Username - ${username} is requesting to login.</H1>`
+    //        );
     // res.sendFile("register.html", {
     //     root: "./views/users"
     // });
+
+    res.redirect("/dashboard");
 });
 
 module.exports = router;
